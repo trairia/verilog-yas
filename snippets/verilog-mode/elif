@@ -2,6 +2,4 @@
 # name: elif
 # key: elif
 # --
-else if (${1:condition}) begin
-     $0
-end
+else if (${1:condition}) $0
