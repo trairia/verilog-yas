@@ -2,6 +2,6 @@
 # name: module
 # key: module
 # --
-module $1(/*AUTOARG*/);
+module ${1:`(file-name-nondirectory (file-name-sans-extension (file-name-sans-extension (buffer-file-name))))`}(/*AUTOARG*/);
    $0
 endmodule //$1
