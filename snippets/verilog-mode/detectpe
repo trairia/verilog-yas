@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: detectpe
+# key: detectpe
+# --
+
+input     i_${1:nodename};
+reg [1:0] r_$1_edge;
+wire      w_$1_pe;
+
+always @(posedge clk or negedge xrst) begin
+if(!xrst) r_$1_edge <= 2'b0;
+else r_$1_edge <= {r_$1_edge[0], i_$1};
+end
+
+assign w_$1_pe = (! r_$1_edge[1] ) && r_$1_edge[0];
