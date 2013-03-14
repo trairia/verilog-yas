@@ -4,12 +4,12 @@
 # --
 
 input     i_${1:nodename};
-reg [1:0] r_$1_edge;
+reg       r_$1_edge;
 wire      w_$1_ne;
 
 always @(posedge clk or negedge xrst) begin
-if(!xrst) r_$1_edge <= 2'b0;
-else r_$1_edge <= {r_$1_edge[0], i_$1};
+if(!xrst) r_$1_edge <= 1'b0;
+else r_$1_edge <= i_$1;
 end
 
-assign w_$1_ne =  r_$1_edge[1]  && ( ! r_$1_edge[0]);
+assign w_$1_ne =  r_$1_edge  && ( ! i_$1 );
